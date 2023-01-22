@@ -1,0 +1,29 @@
+.dashboard-parent{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        gap: 40px;
+}
+@media (max-width: 600px) {
+    .dashboard-parent{
+        grid-template-columns: 2fr;
+        grid-template-rows: 1fr;
+    }
+}
+.carousel-container{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.carousel-item {
+    height: 30rem;
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
