@@ -27,3 +27,6 @@
     justify-content: center;
     transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
+.flip-scale-up-ver{animation:rotate-in-2-cw .5s cubic-bezier(.25,.46,.45,.94) both}
+
+ @keyframes flip-scale-up-ver{0%{transform:rotate(-45deg);opacity:0}100%{transform:rotate(0);opacity:1}}
