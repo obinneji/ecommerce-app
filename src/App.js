@@ -17,34 +17,44 @@ import Phone from "./components/Phone";
 import Gadget from "./components/Gadget";
 import Watch from "./components/Watch";
 import Laptop from "./components/Laptop";
-
-
+import { LoginContext } from "./contexts/LoginContext";
+import { useState } from "react";
 
 function App() {
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isLogin, setIsLogin] = useState(false)
+
+  
   return (
     <>
-    <Header />
-    <Routes>
-      <Route path="/"  element={<Dashboard />} />
-      <Route path="collections" element={<Collection />}/>
-      <Route path="/collections/phones" element={<Phones />} />
-      <Route path='/collections/phones/:id' element={<Phone />} />
-      <Route path="/collections/gadgets" element={<Gadgets />} />
-      <Route path='/collections/gadgets/:id' element={<Gadget />} />
+      <LoginContext.Provider value={{firstName, setFirstName, lastName, setLastName, email, setEmail, password, setPassword, isLogin, setIsLogin}}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="collections" element={<Collection />} />
+          <Route path="/collections/phones" element={<Phones />} />
+          <Route path='/collections/phones/:id' element={<Phone />} />
+          <Route path="/collections/gadgets" element={<Gadgets />} />
+          <Route path='/collections/gadgets/:id' element={<Gadget />} />
 
-      <Route path="/collections/watches" element={<Watches/>} />
-      <Route path='/collections/watches/:id' element={<Watch />} />
+          <Route path="/collections/watches" element={<Watches />} />
+          <Route path='/collections/watches/:id' element={<Watch />} />
 
-      <Route path="/collections/laptops" element={<Laptops />} />
-      <Route path='/collections/laptops/:id' element={<Laptop />} />
+          <Route path="/collections/laptops" element={<Laptops />} />
+          <Route path='/collections/laptops/:id' element={<Laptop />} />
 
 
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
-      <Route path="cart" element={<Cart />} />
-      <Route path='login' element={<AuthPage />} />
-    </Routes>
-    <Footer />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path='login' element={<AuthPage />} />
+        </Routes>
+        <Footer />
+      </LoginContext.Provider>
+
     </>
   );
 }

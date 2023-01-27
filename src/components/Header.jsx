@@ -3,13 +3,16 @@
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import { Link } from 'react-router-dom';
-const Header = () => {
+import { LoginContext } from '../contexts/LoginContext';
+import { useContext } from 'react';
 
+const Header = () => {
+    const {isLogin} =  useContext(LoginContext)
   return (
     <div className='bg-blue'>
       <nav className=' text-white px-7 py-10 font-poppins flex lg:items-center justify-between lg:flex-row flex-col item-left'>
         {/* <img className='' alt='brand-logo' src=''></img> */}
-        <Link to="/"><h1 className=' ml-4 text-4xl text-white font-bold'>BUYNOW</h1></Link>
+        <Link to="/"><h1 className='text-4xl text-white font-bold'>BUYNOW</h1></Link>
         <ul className='flex lg:gap-16 mr-20 flex-col lg:flex-row gap-6 mt-5 mb-5'>
           <li><Link to='/collections' className='font-medium text-xl'>Collections</Link></li>
           <li><Link to='/about' className='font-medium text-xl'>About</Link></li>
@@ -30,7 +33,7 @@ const Header = () => {
         </form>
         <div className='flex align-center cursor-pointet mt-5 mb-5 '>
           <PersonOutlineIcon />
-          <Link to='/login' className='text-xl '>Sign in Acct</Link>
+          <Link to='/login' className='text-xl '>{isLogin ? <p className=''>LoggedIn</p> : <p>Sign in Acct</p>}</Link>
         </div>
         <div className='flex align-center cursor-pointer'>
           <Link to='/cart'>

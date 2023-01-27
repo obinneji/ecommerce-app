@@ -9,6 +9,7 @@ module.exports = {
       white: '#FFFFFF',
       yellow: '#FFC220',
       black: '#2E2F32',
+      red: '#FF0000'
     },
     fontFamily: {
       'poppins' : 'Poppins, sans-serif'
